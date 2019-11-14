@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -95,6 +97,41 @@ public class CardViewPlus extends CardView {
         setMaxCardElevation(getMaxElevation());
         setCardElevation(getMinElevation());
         setTag("Released");
-        
+
+    }
+    
+    private void expand() {
+        final float min = getMinElevation();
+        final float max = getMaxElevation();
+
+        Animation animation = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                setCardElevation((int) (interpolatedTime * (max - min)) + min);
+            } @Override
+        public boolean willChangeBounds() {
+            return true;
+        }
+        };
+        animation.setDuration(150);
+        startAnimation(animation);
+    }
+    private void collapse() {
+        final float min = getMinElevation();
+        final float max = getMaxElevation();
+
+        Animation animation = new Animation()
+        {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                setCardElevation((int) (min - (int) (interpolatedTime * (max - min)) + max - min));
+            } @Override
+        public boolean willChangeBounds() {
+            return true;
+        }
+        };
+        animation.setDuration(150);
+        startAnimation(animation);
     }
 }
