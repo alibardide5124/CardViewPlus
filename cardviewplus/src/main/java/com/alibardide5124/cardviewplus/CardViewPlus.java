@@ -97,9 +97,53 @@ public class CardViewPlus extends CardView {
         setMaxCardElevation(getMaxElevation());
         setCardElevation(getMinElevation());
         setTag("Released");
-
+        setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        if (getTag().equals("Released")) {
+                            expand();
+                            setTag("Pressed");
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if (getTag().equals("Pressed")) {
+                            collapse();
+                            setTag("Released");
+                            setClickable(false);
+                            if (clickMode == CLICK_MODE_COLLAPSE) {
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        performClick();
+                                    }
+                                }, 150);
+                            } else if (clickMode == CLICK_MODE_RELEASE) {
+                                performClick();
+                            } else {
+                                performClick();
+                            }
+                            return false;
+                        }
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (getTag().equals("Pressed")) {
+                            float eventY = event.getY();
+                            float eventX = event.getX();
+                            if (eventY > getHeight() || eventX > getWidth() || eventY < 0 || eventX < 0) {
+                                collapse();
+                                setTag("Released");
+                            }
+                            return false;
+                        }
+                        break;
+                }
+                return true;
+            }
+        });
     }
-    
+
     private void expand() {
         final float min = getMinElevation();
         final float max = getMaxElevation();
