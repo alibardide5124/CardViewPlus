@@ -6,13 +6,88 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.alibardide5124.cardviewplus.CardViewPlus
+        android:id="@+id/mainCardTop"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="5dp"
+        app:layout_constraintBottom_toTopOf="@id/mainCardCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxElevation="5dp"
+        app:minElevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="First Card"
+            android:textColor="#de000000"
+            android:textSize="15sp" />
+
+    </com.alibardide5124.cardviewplus.CardViewPlus>
+
+    <com.alibardide5124.cardviewplus.CardViewPlus
+        android:id="@+id/mainCardCenter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxElevation="10dp"
+        app:minElevation="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Second Card"
+            android:textColor="#de000000"
+            android:textSize="15sp" />
+
+    </com.alibardide5124.cardviewplus.CardViewPlus>
+
+    <com.alibardide5124.cardviewplus.CardViewPlus
+        android:id="@+id/mainCardBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:animationEnabled="false"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainCardCenter"
+        app:maxElevation="5dp"
+        app:minElevation="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No Animation"
+            android:textColor="#de000000"
+            android:textSize="15sp" />
+
+    </com.alibardide5124.cardviewplus.CardViewPlus>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
