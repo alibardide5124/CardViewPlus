@@ -1,13 +1,11 @@
 # CardViewPlus [![](https://jitpack.io/v/AliBardide5124/CardViewPlus.svg)](https://jitpack.io/#AliBardide5124/CardViewPlus)
  An small library to animate Card View shadow
 <br/>
-[![](https://drive.google.com/uc?authuser=0&id=1M0buUC6WQiKrr7oQEtO1y0rH53j5MXl9&export=download)](https://drive.google.com/file/d/1M0buUC6WQiKrr7oQEtO1y0rH53j5MXl9/view?usp=drivesdk)
+[![](https://drive.google.com/uc?export=download&id=1Fyztx2EGxhkuNGGaaifAC9mu71m1n30A)]
 <br/>
 <br/>
 <br/>
-Download demo app 
-<br/>
-[![](https://drive.google.com/uc?authuser=0&id=1d4cH9m1ev8TLYwQHBcXsBcXUbee7PudO&export=download)](https://drive.google.com/uc?authuser=0&id=1PGaxhKUXieBOdJNAn2VwCsLl_6knV7DK&export=download)
+Download demo app from [![]()here](https://drive.google.com/uc?export=download&id=1b1Po-bWm__8Dc3UjuRYG8FU_a8_9qdVV)
 <br/>
 <br/>
 
@@ -31,26 +29,10 @@ Step 2. Add the dependency
 You can use CardViewPlus just like a noraml CardView
 But it give you some more attributes 
 
-	app:minElevation="2dp"
-	app:maxElevation="5dp"
-	app:animationEnabled="true"
-	app:clickMode="collapse"
-<br/>
-
-  Lets know whats this attributes do
-<br/>
-
-  #### minElevation - Dimension:
-   You can set minimum CardViewPlus elevation by this attribute. Its like cardElevation on a regular CardView. This is the CardViewPlus elevation before touching.  By default its set to "2dp"
-<br/>
-  #### maxElevation - Dimension:
-   You can set maximum CardViewPlus elevation. This is the CardViewPlus elevation after touching. By default its set to "5dp"
- <br/>
- #### animationEnabled - Boolean: 
-   You can enable or disable CardViewPlus shadow animation by this attribute. if you want to use CardViewPlus just like a regular CardView, set this to "false". By default its set to "true".
-<br/>
-#### clickMode - collapse.release:
-   You can specify when CardViewPlus is clicked. When it value is equal to "collapse", CardViewPlus is clicked after its released and its shadow is collapsed. When it value is equal to "release", CardViewPlus is clicked right after release.
+	app:normalElevation="2dp"   // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
+	app:maxElevation="5dp"      // Dimension - Set CardViewPlus elevation in pressed state. Default: 5dp
+	app:animationEnabled="true" // boolean - Enable or Disable CardViewPlus shadow animation. Default: true.
+	app:clickMode="collapse"    // 'collapse' & 'release' - Set delay after click CardViewPlus. 1- collapse: Click after CardViewPlus released and shadow was restored to normal state. 2- release: Just after CardViewPlus released. Default: 'collapse'
 <br/>
 <br/>
 
