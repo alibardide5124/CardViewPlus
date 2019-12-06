@@ -1,5 +1,13 @@
-# CardViewPlus
+# CardViewPlus [![](https://jitpack.io/v/AliBardide5124/CardViewPlus.svg)](https://jitpack.io/#AliBardide5124/CardViewPlus)
  An small library to animate Card View shadow
+<br/>
+[![](https://drive.google.com/uc?authuser=0&id=1M0buUC6WQiKrr7oQEtO1y0rH53j5MXl9&export=download)](https://drive.google.com/file/d/1M0buUC6WQiKrr7oQEtO1y0rH53j5MXl9/view?usp=drivesdk)
+<br/>
+<br/>
+<br/>
+Download demo app 
+<br/>
+[![](https://drive.google.com/uc?authuser=0&id=1d4cH9m1ev8TLYwQHBcXsBcXUbee7PudO&export=download)](https://drive.google.com/uc?authuser=0&id=1PGaxhKUXieBOdJNAn2VwCsLl_6knV7DK&export=download)
 <br/>
 <br/>
 
@@ -15,7 +23,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0'
+	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.0'
 	}
 <br/>
 
@@ -33,20 +41,20 @@ But it give you some more attributes
 <br/>
 
   #### minElevation - Dimension:
-   You can set minimum shadow elevation by this attribute. Its like cardElevation on a regular CardView. By default its set to "2dp"
+   You can set minimum CardViewPlus elevation by this attribute. Its like cardElevation on a regular CardView. This is the CardViewPlus elevation before touching.  By default its set to "2dp"
 <br/>
   #### maxElevation - Dimension:
-   This attribute determines how large the shadow of your card can be. When user touch the CardViewPlus, The shadow expands to this value and returns to the original value after the CardViewPlus is released. By default its set to "5dp"
+   You can set maximum CardViewPlus elevation. This is the CardViewPlus elevation after touching. By default its set to "5dp"
  <br/>
  #### animationEnabled - Boolean: 
-   You can enable or disable CardViewPlus shadow animation by this attribute. By default its set to "true".
+   You can enable or disable CardViewPlus shadow animation by this attribute. if you want to use CardViewPlus just like a regular CardView, set this to "false". By default its set to "true".
 <br/>
-#### clickMode - collapse.release: 
-   You can specify when the CardViewPlus is clicked . When it value is equals "collase", CardViewPlus click after its released and it shadow was collapsed. When it value is equals "release", CardViewPlus click just after its released. 
+#### clickMode - collapse.release:
+   You can specify when CardViewPlus is clicked. When it value is equal to "collapse", CardViewPlus is clicked after its released and its shadow is collapsed. When it value is equal to "release", CardViewPlus is clicked right after release.
 <br/>
 <br/>
 
-  Thank you for using this library.
+  Thank you for using my library.
   <br/>
   You can send your suggestions to my email: 
    
