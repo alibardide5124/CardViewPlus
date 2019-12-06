@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<declare-styleable name="CardViewPlus">
-		<attr name="minElevation" format="dimension" />
-		<attr name="maxElevation" format="dimension" />
+		<attr name="normalElevation" format="dimension" />
+		<attr name="pressedElevation" format="dimension" />
 		<attr name="animationEnabled" format="boolean" />
 		<attr name="clickMode" format="enum" >
 			<enum name="collapse" value="0" />

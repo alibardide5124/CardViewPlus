@@ -17,8 +17,8 @@ public class CardViewPlus extends CardView {
 
 
     private Context context;
-    private float minElevation;
-    private float maxElevation;
+    private float normalElevation;
+    private float pressedElevation;
     private boolean isAnimationEnabled;
     private int clickMode;
 
@@ -43,8 +43,8 @@ public class CardViewPlus extends CardView {
 
     private void init(@NonNull Context context) {
         this.context = context;
-        setMinElevation(5);
-        setMaxElevation(10);
+        setNormalElevation(5);
+        setPressedElevation(10);
         setAnimationEnabled(true);
         setClickMode(CLICK_MODE_COLLAPSE);
 
@@ -54,8 +54,8 @@ public class CardViewPlus extends CardView {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CardViewPlus, 0, 0);
 
         this.context = context;
-        setMinElevation(typedArray.getDimension(R.styleable.CardViewPlus_minElevation, 5));
-        setMaxElevation(typedArray.getDimension(R.styleable.CardViewPlus_maxElevation, 10));
+        setNormalElevation(typedArray.getDimension(R.styleable.CardViewPlus_normalElevation, 5));
+        setPressedElevation(typedArray.getDimension(R.styleable.CardViewPlus_pressedElevation, getNormalElevation() * 2));
         setAnimationEnabled(typedArray.getBoolean(R.styleable.CardViewPlus_animationEnabled, true));
         setClickMode(typedArray.getInt(R.styleable.CardViewPlus_clickMode, CLICK_MODE_COLLAPSE));
 
@@ -72,18 +72,18 @@ public class CardViewPlus extends CardView {
         isAnimationEnabled = animationEnabled;
     }
 
-    public float getMinElevation() {
-        return minElevation;
+    public float getNormalElevation() {
+        return normalElevation;
     }
-    public void setMinElevation(float minElevation) {
-        this.minElevation = minElevation;
+    public void setNormalElevation(float normalElevation) {
+        this.normalElevation = normalElevation;
     }
 
-    public float getMaxElevation() {
-        return maxElevation;
+    public float getPressedElevation() {
+        return pressedElevation;
     }
-    public void setMaxElevation(float maxElevation) {
-        this.maxElevation = maxElevation;
+    public void setPressedElevation(float pressedElevation) {
+        this.pressedElevation = pressedElevation;
     }
 
     public int getClickMode() {
@@ -94,8 +94,12 @@ public class CardViewPlus extends CardView {
     }
 
     public void CardTouch() {
-        setMaxCardElevation(getMaxElevation());
-        setCardElevation(getMinElevation());
+        if (getPressedElevation() > getNormalElevation())
+            setMaxCardElevation(getPressedElevation());
+        else
+            setMaxCardElevation(getNormalElevation());
+
+        setCardElevation(getNormalElevation());
         setTag("Released");
         setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -103,13 +107,13 @@ public class CardViewPlus extends CardView {
                 switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (getTag().equals("Released")) {
-                            expand();
+                            onTouchAnimation();
                             setTag("Pressed");
                         }
                         break;
                     case MotionEvent.ACTION_UP:
                         if (getTag().equals("Pressed")) {
-                            collapse();
+                            onReleaseAnimation();
                             setTag("Released");
                             setClickable(false);
                             if (clickMode == CLICK_MODE_COLLAPSE) {
@@ -132,7 +136,7 @@ public class CardViewPlus extends CardView {
                             float eventY = event.getY();
                             float eventX = event.getX();
                             if (eventY > getHeight() || eventX > getWidth() || eventY < 0 || eventX < 0) {
-                                collapse();
+                                onReleaseAnimation();
                                 setTag("Released");
                             }
                             return false;
@@ -144,36 +148,38 @@ public class CardViewPlus extends CardView {
         });
     }
 
-    private void expand() {
-        final float min = getMinElevation();
-        final float max = getMaxElevation();
+    private void onTouchAnimation() {
+        final float normal = getNormalElevation();
+        final float pressed = getPressedElevation();
 
         Animation animation = new Animation()
         {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                setCardElevation((int) (interpolatedTime * (max - min)) + min);
-            } @Override
-        public boolean willChangeBounds() {
-            return true;
-        }
+                setCardElevation((int) (interpolatedTime * (pressed - normal)) + normal);
+            }
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
         };
         animation.setDuration(150);
         startAnimation(animation);
     }
-    private void collapse() {
-        final float min = getMinElevation();
-        final float max = getMaxElevation();
+    private void onReleaseAnimation() {
+        final float normal = getNormalElevation();
+        final float pressed = getPressedElevation();
 
         Animation animation = new Animation()
         {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                setCardElevation((int) (min - (int) (interpolatedTime * (max - min)) + max - min));
-            } @Override
-        public boolean willChangeBounds() {
-            return true;
-        }
+                setCardElevation((int) (normal - (int) (interpolatedTime * (pressed - normal)) + pressed - normal));
+            }
+            @Override
+            public boolean willChangeBounds() {
+                return true;
+            }
         };
         animation.setDuration(150);
         startAnimation(animation);
