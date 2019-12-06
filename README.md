@@ -1,7 +1,7 @@
 # CardViewPlus [![](https://jitpack.io/v/AliBardide5124/CardViewPlus.svg)](https://jitpack.io/#AliBardide5124/CardViewPlus)
  An small library to animate Card View shadow
 <br/>
-[![](https://drive.google.com/uc?export=download&id=1Fyztx2EGxhkuNGGaaifAC9mu71m1n30A)]
+[](https://drive.google.com/uc?export=download&id=1Fyztx2EGxhkuNGGaaifAC9mu71m1n30A)
 <br/>
 <br/>
 <br/>
