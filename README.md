@@ -5,7 +5,7 @@
 <br/>
 <br/>
 <br/>
-Download demo app from [![]()here](https://drive.google.com/uc?export=download&id=1b1Po-bWm__8Dc3UjuRYG8FU_a8_9qdVV)
+Download demo app from [![]()here](https://drive.google.com/uc?export=download&id=1pXNp_Fk3x3UJFR7eqCwPra74ri2WBLxO)
 <br/>
 <br/>
 
@@ -21,7 +21,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.1'
+	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.2'
 	}
 <br/>
 
