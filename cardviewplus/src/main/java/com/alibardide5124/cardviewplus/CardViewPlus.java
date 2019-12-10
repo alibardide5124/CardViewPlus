@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,7 +49,8 @@ public class CardViewPlus extends CardView {
         setAnimationEnabled(true);
         setClickMode(CLICK_MODE_COLLAPSE);
 
-        CardTouch();
+        initElevation();
+        setTag("Released");
     }
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CardViewPlus, 0, 0);
@@ -61,8 +63,16 @@ public class CardViewPlus extends CardView {
 
         typedArray.recycle();
 
-        if (isAnimationEnabled)
-            CardTouch();
+        initElevation();
+        setTag("Released");
+    }
+    private void initElevation() {
+        if (getPressedElevation() > getNormalElevation())
+            setMaxCardElevation(getPressedElevation());
+        else
+            setMaxCardElevation(getNormalElevation());
+
+        setCardElevation(getNormalElevation());
     }
 
     public boolean isAnimationEnabled() {
@@ -93,59 +103,55 @@ public class CardViewPlus extends CardView {
         this.clickMode = clickMode;
     }
 
-    public void CardTouch() {
-        if (getPressedElevation() > getNormalElevation())
-            setMaxCardElevation(getPressedElevation());
-        else
-            setMaxCardElevation(getNormalElevation());
-
-        setCardElevation(getNormalElevation());
-        setTag("Released");
-        setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        if (getTag().equals("Released")) {
-                            onTouchAnimation();
-                            setTag("Pressed");
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (isAnimationEnabled()) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    if (getTag().equals("Released")) {
+                        onTouchAnimation();
+                        setTag("Pressed");
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    if (getTag().equals("Pressed")) {
+                        onReleaseAnimation();
+                        setTag("Released");
+                        setClickable(false);
+                        if (clickMode == CLICK_MODE_COLLAPSE) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    performClick();
+                                }
+                            }, 150);
+                        } else if (clickMode == CLICK_MODE_RELEASE) {
+                            performClick();
+                        } else {
+                            performClick();
                         }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (getTag().equals("Pressed")) {
+                        return false;
+                    }
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (getTag().equals("Pressed")) {
+                        float eventY = event.getY();
+                        float eventX = event.getX();
+                        if (eventY > getHeight() || eventX > getWidth() || eventY < 0 || eventX < 0) {
                             onReleaseAnimation();
                             setTag("Released");
-                            setClickable(false);
-                            if (clickMode == CLICK_MODE_COLLAPSE) {
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        performClick();
-                                    }
-                                }, 150);
-                            } else if (clickMode == CLICK_MODE_RELEASE) {
-                                performClick();
-                            } else {
-                                performClick();
-                            }
-                            return false;
                         }
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        if (getTag().equals("Pressed")) {
-                            float eventY = event.getY();
-                            float eventX = event.getX();
-                            if (eventY > getHeight() || eventX > getWidth() || eventY < 0 || eventX < 0) {
-                                onReleaseAnimation();
-                                setTag("Released");
-                            }
-                            return false;
-                        }
-                        break;
-                }
-                return true;
+                        return false;
+                    }
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    if (getTag().equals("Pressed")) {
+                        onReleaseAnimation();
+                        setTag("Released");
+                    }
             }
-        });
+        }
+        return true;
     }
 
     private void onTouchAnimation() {
