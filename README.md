@@ -27,6 +27,15 @@ Step 2. Add the dependency
 
 ## How to use
 You can use CardViewPlus just like a noraml CardView
+	
+	<com.alibardide5124.cardviewplus.CardViewPlus
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	... >
+		....
+	
+	</com.alibardide5124.cardviewplus.CardViewPlus>
+	
 But it give you some more attributes 
 
 	app:normalElevation="2dp"   // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
