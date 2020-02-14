@@ -21,6 +21,7 @@ public class CardViewPlus extends CardView {
     private int clickDelay = 150;
 
     private int animationDuration = 150;
+    private boolean isPressed = false;
 
 
     public CardViewPlus(@NonNull Context context) {
@@ -40,7 +41,6 @@ public class CardViewPlus extends CardView {
         this.context = context;
 
         initElevation();
-        setTag("Released");
     }
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CardViewPlus, 0, 0);
@@ -53,7 +53,6 @@ public class CardViewPlus extends CardView {
 
         typedArray.recycle();
         initElevation();
-        setTag("Released");
     }
     private void initElevation() {
         if (pressedElevation > normalElevation)
@@ -77,18 +76,24 @@ public class CardViewPlus extends CardView {
     public void setClickDelay(int clickDelay) { this.clickDelay = clickDelay; }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        onTouchEvent(ev);
+        return false;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (isAnimationEnabled) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    if (getTag().equals("Released")) {
+                    if (!isPressed) {
                         onTouchAnimation();
-                        setTag("Pressed");
+                        isPressed = true;
                     } break;
                 case MotionEvent.ACTION_UP:
-                    if (getTag().equals("Pressed")) {
+                    if (isPressed) {
                         onReleaseAnimation();
-                        setTag("Released");
+                        isPressed = false;
                         setClickable(false);
                         new Handler().postDelayed(new Runnable() {
                             @Override
@@ -97,19 +102,19 @@ public class CardViewPlus extends CardView {
                         return false;
                     } break;
                 case MotionEvent.ACTION_MOVE:
-                    if (getTag().equals("Pressed")) {
+                    if (isPressed) {
                         float eventY = event.getY();
                         float eventX = event.getX();
                         if (eventY > getHeight() || eventX > getWidth() || eventY < 0 || eventX < 0) {
                             onReleaseAnimation();
-                            setTag("Released");
+                            isPressed = false;
                         } return false;
                     }
                     break;
                 case MotionEvent.ACTION_CANCEL:
-                    if (getTag().equals("Pressed")) {
+                    if (isPressed) {
                         onReleaseAnimation();
-                        setTag("Released");
+                        isPressed = false;
                     }
             }
         } return true;
