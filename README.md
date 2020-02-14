@@ -42,7 +42,19 @@ But it give you some more attributes
 	app:normalElevation="2dp"   // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
 	app:maxElevation="5dp"      // Dimension - Set CardViewPlus elevation in pressed state. Default: 5dp
 	app:animationEnabled="true" // boolean - Enable or Disable CardViewPlus shadow animation. Default: true.
-	app:clickMode="collapse"    // 'collapse' & 'release' - Set delay after click CardViewPlus. 1- collapse: Click after CardViewPlus released and shadow was restored to normal state. 2- release: Just after CardViewPlus released. Default: 'collapse'
+	app:clickDelay="150"        // Set a delay for click after release the CardViewPlus. Default: 150ms
+
+note: Its better to set click delay more than 150ms.
+<br/>
+<br/>
+You can also use this attributes in code
+
+	CardViewPlus cardViewPlus = ...
+	....
+	cardViewPlus.setNormalElevation(4);
+	cardViewPlus.setPressedElevation(10);
+	cardViewPlus.setAnimationEnabled(true)
+	cardViewPlus.setClickDelay(150)
 <br/>
 <br/>
 
