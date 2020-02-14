@@ -22,7 +22,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.2'
+	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.3'
 	}
 <br/>
 
