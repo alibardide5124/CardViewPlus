@@ -1,11 +1,12 @@
 # CardViewPlus [![](https://jitpack.io/v/AliBardide5124/CardViewPlus.svg)](https://jitpack.io/#AliBardide5124/CardViewPlus)
- An small library to animate Card View shadow
-<br/>
-[![](https://drive.google.com/uc?export=download&id=1Fyztx2EGxhkuNGGaaifAC9mu71m1n30A)]
+An small library to animate Card View shadow
 <br/>
 <br/>
+    ![Demo](https://drive.google.com/uc?export=download&id=1Fyztx2EGxhkuNGGaaifAC9mu71m1n30A)
 <br/>
-Download demo app from [![]()here](https://drive.google.com/uc?export=download&id=1b1Po-bWm__8Dc3UjuRYG8FU_a8_9qdVV)
+<br/>
+<br/>
+Download demo app from [here](https://drive.google.com/uc?export=download&id=1pXNp_Fk3x3UJFR7eqCwPra74ri2WBLxO)
 <br/>
 <br/>
 
@@ -21,12 +22,21 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.1'
+	        implementation 'com.github.AliBardide5124:CardViewPlus:1.0.2'
 	}
 <br/>
 
 ## How to use
 You can use CardViewPlus just like a noraml CardView
+	
+	<com.alibardide5124.cardviewplus.CardViewPlus
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	... >
+		....
+	
+	</com.alibardide5124.cardviewplus.CardViewPlus>
+	
 But it give you some more attributes 
 
 	app:normalElevation="2dp"   // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
