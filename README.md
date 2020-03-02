@@ -2,11 +2,11 @@
 An small library to animate Card View shadow
 <br/>
 <br/>
-    ![Demo](https://drive.google.com/uc?export=download&id=1OV2thznrbhr1oiT2HC6ZnzT-5gAMUlmc)
+    ![Demo](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/ezgif.com-optimize.gif)
 <br/>
 <br/>
 <br/>
-Download demo app from [here](https://drive.google.com/uc?export=download&id=1pXNp_Fk3x3UJFR7eqCwPra74ri2WBLxO)
+Download demo app from [here](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/app-debug.apk)
 <br/>
 <br/>
 
