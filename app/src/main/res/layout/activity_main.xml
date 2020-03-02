@@ -44,7 +44,6 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="5dp"
-        app:contentPadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +52,14 @@
         app:normalElevation="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Second Card"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:textColor="#de000000"
             android:textSize="15sp" />
 
@@ -73,7 +76,6 @@
         android:layout_marginRight="24dp"
         app:animationEnabled="false"
         app:cardCornerRadius="5dp"
-        app:contentPadding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainCardCenter"
@@ -81,10 +83,14 @@
         app:normalElevation="2dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="No Animation"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:textColor="#de000000"
             android:textSize="15sp" />
 
