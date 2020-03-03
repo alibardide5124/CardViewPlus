@@ -24,6 +24,20 @@ Step 2. Add the dependency
 	dependencies {
 	        implementation 'com.github.alibardide5124:CardViewPlus:1.0.3'
 	}
+	
+### note:
+  If there's any problem using library, just add CardView library
+
+	dependencies {
+    		implementation 'androidx.cardview:cardview:1.0.0'
+	}
+
+  or if you don't use androidX, add library below
+	
+	dependencies {
+    		implementation 'com.android.support:cardview-v7:28.0.0'
+	}
+	
 <br/>
 
 ## How to use
