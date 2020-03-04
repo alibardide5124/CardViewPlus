@@ -2,11 +2,11 @@
 An small library to animate Card View shadow
 <br/>
 <br/>
-    ![Demo](https://drive.google.com/uc?export=download&id=1OV2thznrbhr1oiT2HC6ZnzT-5gAMUlmc)
+    ![Demo](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/ezgif.com-optimize.gif)
 <br/>
 <br/>
 <br/>
-Download demo app from [here](https://drive.google.com/uc?export=download&id=1pXNp_Fk3x3UJFR7eqCwPra74ri2WBLxO)
+Download demo app from [here](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/app-debug.apk)
 <br/>
 <br/>
 
@@ -24,6 +24,20 @@ Step 2. Add the dependency
 	dependencies {
 	        implementation 'com.github.alibardide5124:CardViewPlus:1.0.3'
 	}
+	
+### note:
+  If there's any problem using library, just add CardView library
+
+	dependencies {
+    		implementation 'androidx.cardview:cardview:1.0.0'
+	}
+
+  or if you don't use androidX, add library below
+	
+	dependencies {
+    		implementation 'com.android.support:cardview-v7:28.0.0'
+	}
+	
 <br/>
 
 ## How to use
