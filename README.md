@@ -1,5 +1,5 @@
 # CardViewPlus [![](https://jitpack.io/v/AliBardide5124/CardViewPlus.svg)](https://jitpack.io/#AliBardide5124/CardViewPlus)
-An small library to animate Card View shadow
+A library to make animated CardView elevation
 <br/>
 <br/>
     ![Demo](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/ezgif.com-optimize.gif)
