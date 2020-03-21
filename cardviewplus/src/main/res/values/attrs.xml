@@ -4,6 +4,6 @@
 		<attr name="normalElevation" format="dimension" />
 		<attr name="pressedElevation" format="dimension" />
 		<attr name="animationEnabled" format="boolean" />
-		<attr name="clickMode" format="integer" />
+		<attr name="clickDelay" format="integer" />
 	</declare-styleable>
 </resources>
