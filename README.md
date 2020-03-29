@@ -22,7 +22,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.alibardide5124:CardViewPlus:1.0.4'
+	        implementation 'com.github.alibardide5124:CardViewPlus:1.0.5'
 	}
 	
 ### note:
@@ -71,6 +71,7 @@ You can also use this attributes in code
 	....
 	cardViewPlus.setNormalElevation(4);
 	cardViewPlus.setPressedElevation(10);
+	cardViewPlus.setPressedColor(Color.parseColor("#e0e0e0"));
 	cardViewPlus.setAnimationEnabled(true)
 	cardViewPlus.setClickDelay(150)
 <br/>
