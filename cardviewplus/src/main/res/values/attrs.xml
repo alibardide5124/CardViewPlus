@@ -3,6 +3,7 @@
 	<declare-styleable name="CardViewPlus">
 		<attr name="normalElevation" format="dimension" />
 		<attr name="pressedElevation" format="dimension" />
+		<attr name="pressedColor" format="color" />
 		<attr name="animationEnabled" format="boolean" />
 		<attr name="clickDelay" format="integer" />
 	</declare-styleable>

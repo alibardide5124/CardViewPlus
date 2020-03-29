@@ -21,13 +21,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:pressedElevation="5dp"
-        app:normalElevation="2dp">
+        app:normalElevation="2dp"
+        app:pressedColor="#2196f3">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="First Card"
+            android:text="@string/cardTop_text"
             android:textColor="#de000000"
             android:textSize="15sp" />
 
@@ -52,14 +53,11 @@
         app:normalElevation="5dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Second Card"
+            android:text="@string/cardCenter_text"
             android:padding="5dp"
-            android:gravity="center"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:textColor="#de000000"
             android:textSize="15sp" />
 
@@ -83,14 +81,11 @@
         app:normalElevation="2dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="No Animation"
+            android:text="@string/cardNoAnimation_text"
             android:padding="5dp"
-            android:gravity="center"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:textColor="#de000000"
             android:textSize="15sp" />
 
@@ -119,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Reverse Card"
+            android:text="@string/cardReverse_text"
             android:textColor="#de000000"
             android:textSize="15sp" />
 

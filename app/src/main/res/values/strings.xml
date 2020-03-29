@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CardViewPlusDemo</string>
+    <string name="cardTop_text">First Card</string>
+    <string name="cardCenter_text">Second Card</string>
+    <string name="cardNoAnimation_text">No Animation Card</string>
+    <string name="cardReverse_text">Reverse Card</string>
 </resources>
