@@ -2,7 +2,7 @@
 A library to make animated CardView elevation
 <br/>
 <br/>
-    ![Demo](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/ezgif.com-optimize.gif)
+    ![Demo](https://github.com/alibardide5124/CardViewPlus/blob/master/readme.files/sample.gif)
 <br/>
 <br/>
 <br/>
@@ -53,12 +53,16 @@ You can use CardViewPlus just like a noraml CardView
 	
 But it give you some more attributes 
 
-	app:normalElevation="2dp"   // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
-	app:maxElevation="5dp"      // Dimension - Set CardViewPlus elevation in pressed state. Default: 5dp
-	app:animationEnabled="true" // boolean - Enable or Disable CardViewPlus shadow animation. Default: true.
-	app:clickDelay="150"        // Set a delay for click after release the CardViewPlus. Default: 150ms
-
-note: Its better to set click delay more than 150ms.
+	app:normalElevation="2dp"     // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
+	app:maxElevation="5dp"        // Dimension - Set CardViewPlus elevation in pressed state. Default: 5dp
+		// If you want to disable elevation animation, set 'app:animationEnabled="false"' or set the same value for 
+		normalElevation and maxElevation
+	app:pressedColor="#ffe0e0e0"  // Color - Set a color for on touch color animation
+		// If you If you want to disable color animation, set 'app:animationEnabled="false"' or set the same value for
+		pressedColor and cardBackgroundColor
+	app:animationEnabled="true"   // boolean - Enable or Disable CardViewPlus shadow animation. Default: true.
+	app:clickDelay="150"          // Int (ms) - Set a delay for click after release the CardViewPlus. Default: 150ms
+		// Its better to set click delay more than 150ms.
 <br/>
 <br/>
 You can also use this attributes in code
