@@ -11,7 +11,7 @@ Download demo app from [here](https://github.com/alibardide5124/CardViewPlus/blo
 <br/>
 
 ## How to add
-Add it in your root build.gradle at the end of repositories:
+Step 1. Add it in your root build.gradle at the end of repositories:
 
 	allprojects {
 		repositories {
@@ -22,50 +22,37 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
+		implementation 'androidx.cardview:cardview:1.0.0'
 	        implementation 'com.github.alibardide5124:CardViewPlus:1.0.5'
 	}
-	
-### note:
-  If there's any problem using library, just add CardView library
-
-	dependencies {
-    		implementation 'androidx.cardview:cardview:1.0.0'
-	}
-
-  or if you don't use androidX, add library below
-	
-	dependencies {
-    		implementation 'com.android.support:cardview-v7:28.0.0'
-	}
-	
 <br/>
 
 ## How to use
-You can use CardViewPlus just like a noraml CardView
+You can use CardViewPlus just like a normal CardView
 	
 	<com.alibardide5124.cardviewplus.CardViewPlus
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	... >
+		... >
+		
 		....
 	
 	</com.alibardide5124.cardviewplus.CardViewPlus>
 	
-But it give you some more attributes 
+<br/>
+<br/>
 
-	app:normalElevation="2dp"     // Dimension - Set CardViewPlus elevation in noraml state. Default: 2dp
-	app:maxElevation="5dp"        // Dimension - Set CardViewPlus elevation in pressed state. Default: 5dp
-		// If you want to disable elevation animation, set 'app:animationEnabled="false"' or set the same value for 
-		normalElevation and maxElevation
-	app:pressedColor="#ffe0e0e0"  // Color - Set a color for on touch color animation
-		// If you If you want to disable color animation, set 'app:animationEnabled="false"' or set the same value for
-		pressedColor and cardBackgroundColor
-	app:animationEnabled="true"   // boolean - Enable or Disable CardViewPlus shadow animation. Default: true.
-	app:clickDelay="150"          // Int (ms) - Set a delay for click after release the CardViewPlus. Default: 150ms
-		// Its better to set click delay more than 150ms.
+But it gives you some more attributes 
+
+	app:normalElevation="2dp"
+	app:maxElevation="5dp"
+	app:pressedColor="#ffe0e0e0"
+	app:animationEnabled="true"
+	app:clickDelay="150"
+
 <br/>
-<br/>
-You can also use this attributes in code
+
+You can also use these attributes in code
 
 	CardViewPlus cardViewPlus = ...
 	....
@@ -74,6 +61,28 @@ You can also use this attributes in code
 	cardViewPlus.setPressedColor(Color.parseColor("#e0e0e0"));
 	cardViewPlus.setAnimationEnabled(true)
 	cardViewPlus.setClickDelay(150)
+<br/>
+<br/>
+
+#### normalElevation - Dimension
+  Set CardViewPlus elevation in noraml state. Default: 2dp
+
+#### maxElevation - Dimension
+  Set CardViewPlus elevation in pressed state. Default: 5dp
+  
+  If you want to disable elevation animation, set 'app:animationEnabled="false"' or set the same value for normalElevation and maxElevation
+
+#### pressedColor - Color
+  Set color for onTouch color animation
+  If you want to disable color animation, set 'app:animationEnabled="false"' or set the same value for pressedColor and cardBackgroundColor
+
+#### animationEnabled - Boolean
+  Enable or Disable CardViewPlus shadow and color animations. Default: true.
+
+#### clickDelay - Int (ms)
+  Set a delay for click after release the CardViewPlus. Default: 150ms
+  Suggest setting click delay more than 150ms.
+  
 <br/>
 <br/>
 
