@@ -64,30 +64,27 @@ You can also use these attributes in code
 <br/>
 <br/>
 
-#### normalElevation - Dimension
-  Set CardViewPlus elevation in noraml state. Default: 2dp
+`normalElevation - Dimension` : set CardViewPlus elevation in noraml state. Default: 2dp.
 
-#### maxElevation - Dimension
-  Set CardViewPlus elevation in pressed state. Default: 5dp
-  
-  If you want to disable elevation animation, set 'app:animationEnabled="false"' or set the same value for normalElevation and maxElevation
+`maxElevation - Dimension`: set CardViewPlus elevation in pressed state. Default: 5dp.
 
-#### pressedColor - Color
-  Set color for onTouch color animation
-  If you want to disable color animation, set 'app:animationEnabled="false"' or set the same value for pressedColor and cardBackgroundColor
+  If you want to disable elevation animation, set the same value for normalElevation and maxElevation.
 
-#### animationEnabled - Boolean
-  Enable or Disable CardViewPlus shadow and color animations. Default: true.
+`pressedColor - Color`: set color for onTouch color animation. Default: #e0e0e0.
 
-#### clickDelay - Int (ms)
-  Set a delay for click after release the CardViewPlus. Default: 150ms
+  If you want to disable color animation, set the same value for pressedColor and cardBackgroundColor.
+
+`animationEnabled - Boolean`: enable or Disable CardViewPlus shadow and color animations. Default: true.
+
+`clickDelay - Int (ms)`: set a delay for click after release the CardViewPlus. Default: 150ms.
+
   Suggest setting click delay more than 150ms.
   
 <br/>
 <br/>
 
   Thank you for using my library.
-  <br/>
+  
   You can send your suggestions to my email: 
    
 	alibardide5124@gmail.com 
