@@ -35,16 +35,15 @@ dependencies {
 Now you're ready to use **CardViewPlus**
 
 You can use CardViewPlus just like a normal CardView
-	
-	<com.alibardide5124.cardviewplus.CardViewPlus
+```xml
+<com.alibardide5124.cardviewplus.CardViewPlus
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		... >
-		
-		....
+	... >	
 	
-	</com.alibardide5124.cardviewplus.CardViewPlus>
-	
+</com.alibardide5124.cardviewplus.CardViewPlus>
+```
+
 <br/>
 
 But it gives you some more attributes 
@@ -126,5 +125,5 @@ And [**follow me**](https://https://https://github.com/alibardide5124?tab=follow
 License
 -----
 
-CardViewPlus by [**Ali Bardide**](https://github.com/alibardide5124) is licensed under a [**Apache License 2.0**](http://www.apache.org/licenses/LICENSE-2.0).
+CardViewPlus by [Ali Bardide](https://github.com/alibardide5124) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
