@@ -126,5 +126,5 @@ And [**follow me**](https://https://https://github.com/alibardide5124?tab=follow
 License
 -----
 
-CardViewPlus by [Ali Bardide](https://github.com/alibardide5124) is licensed under a [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+CardViewPlus by [**Ali Bardide**](https://github.com/alibardide5124) is licensed under a [**Apache License 2.0**](http://www.apache.org/licenses/LICENSE-2.0).
 
