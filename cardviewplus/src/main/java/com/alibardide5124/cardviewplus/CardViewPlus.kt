@@ -58,9 +58,9 @@ class CardViewPlus : CardView {
         return false
     }
 
-    override fun onTouchEvent(event: MotionEvent): Boolean {
+    override fun onTouchEvent(motion: MotionEvent): Boolean {
         if (isAnimationEnabled) {
-            when (event.action) {
+            when (motion.action) {
                 MotionEvent.ACTION_DOWN -> if (!isCardPressed) {
                     onTouchAnimation()
                     isCardPressed = true
@@ -73,7 +73,9 @@ class CardViewPlus : CardView {
                     return false
                 }
                 MotionEvent.ACTION_MOVE -> if (isCardPressed) {
-                    if (event.y > height || event.x > width || event.y < 0 || event.x < 0) {
+                    val checkX =  motion.x > width || motion.x < 0
+                    val checkY = motion.y > height || motion.y < 0
+                    if (checkX || checkY) {
                         onReleaseAnimation()
                         isCardPressed = false
                     }
