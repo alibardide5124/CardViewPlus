@@ -1,7 +1,7 @@
 CardViewPlus
 =================
 
-<img src="/readme.files/sample.gif" alt="sample" title="sample" width="300" height="533" align="right" vspace="52" />
+<img src="/readme.files/sample.gif" alt="sample" title="sample" width="300" height="450" align="right" vspace="52" />
 
 [![Version](https://jitpack.io/v/alibardide5124/CardViewPlus.svg)](https://jitpack.io/#alibardide5124/CardViewPlus)
 [![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14)
