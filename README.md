@@ -1,4 +1,8 @@
-# CardViewPlus [![](https://jitpack.io/v/alibardide5124/CardViewPlus.svg)](https://jitpack.io/#alibardide5124/CardViewPlus)
+# CardViewPlus 
+[![Version](https://jitpack.io/v/alibardide5124/CardViewPlus.svg)](https://jitpack.io/#alibardide5124/CardViewPlus)
+[![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9eca05909e6640d1b56d704c5601d68d)](https://www.codacy.com/manual/alibardide5124/CardViewPlus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alibardide5124/CardViewPlus&amp;utm_campaign=Badge_Grade)
+
 A library to make animated CardView elevation
 <br/>
 <br/>
