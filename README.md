@@ -53,8 +53,8 @@ But it gives you some more attributes
 | `normalCardElevation`           | Dimension - Float (in code)                    | 2dp                     |
 | `pressedCardElevation`          | Dimension - Float (in code)                    | 5dp                     |
 | `cardPressedColor`              | Color                                          | `cardBackgroundColor`   |
-| `animationEnabled`          | Boolean                                        | true                    |
-| `clickDelay`                | Int (milli second)                             | 150                     |
+| `animationEnabled`              | Boolean                                        | true                    |
+| `clickDelay`                    | Int (milli second)                             | 150                     |
 
 `normalCardElevation` : set CardViewPlus elevation in noraml state. Default: 2dp.
 
@@ -74,7 +74,7 @@ But it gives you some more attributes
   
 <br/>
 
-	Please use `normalCardElevation` and `pressedCardElevation` instead of `cardElevation` and `maxCardElevation`.
+   Please use `normalCardElevation` and `pressedCardElevation` instead of `cardElevation` and `maxCardElevation`.
 
 <br/>
 
