@@ -20,9 +20,9 @@
         app:layout_constraintBottom_toTopOf="@id/mainCardCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:pressedElevation="5dp"
-        app:normalElevation="2dp"
-        app:pressedColor="#2196f3">
+        app:normalCardElevation="2dp"
+        app:pressedCardElevation="5dp"
+        app:cardPressedColor="#e0e0e0">
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,8 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:pressedElevation="10dp"
-        app:normalElevation="5dp">
+        app:normalCardElevation="5dp"
+        app:pressedCardElevation="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,8 +77,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainCardCenter"
-        app:pressedElevation="5dp"
-        app:normalElevation="2dp">
+        app:normalCardElevation="2dp"
+        app:pressedCardElevation="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -107,8 +107,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainCardBottom"
-        app:pressedElevation="5dp"
-        app:normalElevation="10dp">
+        app:normalCardElevation="10dp"
+        app:pressedCardElevation="5dp">
 
         <TextView
             android:layout_width="wrap_content"

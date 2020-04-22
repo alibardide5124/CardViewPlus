@@ -2,10 +2,8 @@ package com.alibardide5124.cardviewplus
 
 import android.animation.ArgbEvaluator
 import android.animation.FloatEvaluator
-import android.animation.IntEvaluator
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.graphics.Color
 import android.os.Handler
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -13,16 +11,17 @@ import androidx.cardview.widget.CardView
 
 class CardViewPlus : CardView {
 
-    var normalElevation = 5f
-    var pressedElevation = 10f
-    var pressedColor = Color.parseColor("#ffe0e0e0")
+    var normalCardElevation = 5f
+    var pressedCardElevation = 10f
+    var cardPressedColor = cardBackgroundColor.defaultColor
     var isAnimationEnabled = true
     var clickDelay = 150
     private var isCardPressed = false
     private val animationDuration = 150
+    private val defaultColor = cardBackgroundColor.defaultColor
 
     constructor(context: Context) : super(context) {
-        init()
+        init(context)
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -32,25 +31,23 @@ class CardViewPlus : CardView {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init(context, attrs)
     }
-
-    private fun init() {
-        initElevation()
-    }
-
-    private fun init(context: Context, attrs: AttributeSet?) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CardViewPlus, 0, 0)
-        normalElevation = typedArray.getDimension(R.styleable.CardViewPlus_normalElevation, normalElevation)
-        pressedElevation = typedArray.getDimension(R.styleable.CardViewPlus_pressedElevation, normalElevation * 2)
-        pressedColor = typedArray.getColor(R.styleable.CardViewPlus_pressedColor, pressedColor)
-        isAnimationEnabled = typedArray.getBoolean(R.styleable.CardViewPlus_animationEnabled, isAnimationEnabled)
-        clickDelay = typedArray.getInt(R.styleable.CardViewPlus_clickDelay, clickDelay)
-        typedArray.recycle()
+    
+    private fun init(context: Context, attrs: AttributeSet? = null) {
+        if (attrs != null) {
+            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CardViewPlus, 0, 0)
+            normalCardElevation = typedArray.getDimension(R.styleable.CardViewPlus_normalCardElevation, normalCardElevation)
+            pressedCardElevation = typedArray.getDimension(R.styleable.CardViewPlus_pressedCardElevation, normalCardElevation * 2)
+            cardPressedColor = typedArray.getColor(R.styleable.CardViewPlus_cardPressedColor, cardPressedColor)
+            isAnimationEnabled = typedArray.getBoolean(R.styleable.CardViewPlus_animationEnabled, isAnimationEnabled)
+            clickDelay = typedArray.getInt(R.styleable.CardViewPlus_clickDelay, clickDelay)
+            typedArray.recycle()
+        } 
         initElevation()
     }
 
     private fun initElevation() {
-        maxCardElevation = if (pressedElevation > normalElevation) pressedElevation else normalElevation
-        cardElevation = normalElevation
+        maxCardElevation = if (pressedCardElevation > normalCardElevation) pressedCardElevation else normalCardElevation
+        cardElevation = normalCardElevation
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
@@ -58,9 +55,9 @@ class CardViewPlus : CardView {
         return false
     }
 
-    override fun onTouchEvent(motion: MotionEvent): Boolean {
+    override fun onTouchEvent(event: MotionEvent): Boolean {
         if (isAnimationEnabled) {
-            when (motion.action) {
+            when (event.action) {
                 MotionEvent.ACTION_DOWN -> if (!isCardPressed) {
                     onTouchAnimation()
                     isCardPressed = true
@@ -73,8 +70,8 @@ class CardViewPlus : CardView {
                     return false
                 }
                 MotionEvent.ACTION_MOVE -> if (isCardPressed) {
-                    val checkX =  motion.x > width || motion.x < 0
-                    val checkY = motion.y > height || motion.y < 0
+                    val checkX = event.x < 0 || event.x > width
+                    val checkY = event.y < 0 || event.y > height
                     if (checkX || checkY) {
                         onReleaseAnimation()
                         isCardPressed = false
@@ -86,26 +83,10 @@ class CardViewPlus : CardView {
                     isCardPressed = false
                 }
             }
-        }
+        } else
+            super.onTouchEvent(event)
         return true
     }
-
-    private fun touchAnimation() : ObjectAnimator = ObjectAnimator.ofObject(
-            this,
-            "cardElevation",
-            FloatEvaluator(),
-            normalElevation,
-            pressedElevation
-        ).setDuration(animationDuration.toLong())
-
-    private val defaultColor = cardBackgroundColor.defaultColor
-    private fun colorAnimation() : ObjectAnimator = ObjectAnimator.ofObject(
-            this,
-            "cardBackgroundColor",
-            ArgbEvaluator(),
-            defaultColor,
-            pressedColor
-    ).setDuration(animationDuration.toLong())
 
     private fun onTouchAnimation() {
         touchAnimation().start()
@@ -117,5 +98,19 @@ class CardViewPlus : CardView {
         colorAnimation().reverse()
     }
 
+    private fun touchAnimation() : ObjectAnimator = ObjectAnimator.ofObject(
+            this,
+            "cardElevation",
+            FloatEvaluator(),
+            normalCardElevation,
+            pressedCardElevation
+    ).setDuration(animationDuration.toLong())
 
+    private fun colorAnimation() : ObjectAnimator = ObjectAnimator.ofObject(
+            this,
+            "cardBackgroundColor",
+            ArgbEvaluator(),
+            defaultColor,
+            cardPressedColor
+    ).setDuration(animationDuration.toLong())
 }
