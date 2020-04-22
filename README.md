@@ -27,8 +27,8 @@ allprojects {
 Add the dependency
 ```groovy
 dependencies {
-	implementation 'androidx.cardview:cardview:1.0.0'
-        implementation 'com.github.alibardide5124:CardViewPlus:1.0.5'
+		implementation 'androidx.cardview:cardview:1.0.0'
+        implementation 'com.github.alibardide5124:CardViewPlus:1.0.6'
 }
 ```
 
@@ -48,30 +48,34 @@ You can use CardViewPlus just like a normal CardView
 
 But it gives you some more attributes 
 
-| Properties                      | Type                                                         | Default         |
-| ------------------------------- | ------------------------------------------------------------ | --------------- |
-| `app:normalElevation`           | Dimension - Float (in code)                                  | 2dp             |
-| `app:pressedElevation`          | Dimension - Float (in code)                                  | 5dp             |
-| `app:pressedColor`              | Color                                                        | #e0e0e0         |
-| `app:animationEnabled`          | Boolean                                                      | true            |
-| `app:clickDelay`                | Int (milli second)                                           | 150             |
+| Properties                      | Type                                           | Default                 |
+| ------------------------------- | ---------------------------------------------- | ----------------------- |
+| `normalCardElevation`           | Dimension - Float (in code)                    | 2dp                     |
+| `pressedCardElevation`          | Dimension - Float (in code)                    | 5dp                     |
+| `cardPressedColor`              | Color                                          | `cardBackgroundColor`   |
+| `animationEnabled`          | Boolean                                        | true                    |
+| `clickDelay`                | Int (milli second)                             | 150                     |
 
-`app:normalElevation` : set CardViewPlus elevation in noraml state. Default: 2dp.
+`normalCardElevation` : set CardViewPlus elevation in noraml state. Default: 2dp.
 
-`app:maxElevation`: set CardViewPlus elevation in pressed state. Default: 5dp.
+`pressedCardElevation`: set CardViewPlus elevation in pressed state. Default: 5dp.
 
    If you want to disable elevation animation, set the same value for normalElevation and maxElevation.
 
-`app:pressedColor`: set color for onTouch color animation. Default: #e0e0e0.
+`cardPressedColor`: set color for onTouch color animation. Default: #e0e0e0.
 
    If you want to disable color animation, set the same value for pressedColor and cardBackgroundColor.
 
-`app:animationEnabled`: enable or Disable CardViewPlus shadow and color animations. Default: true.
+`animationEnabled`: enable or Disable CardViewPlus shadow and color animations. Default: true.
 
-`app:clickDelay`: set a delay for click after release the CardViewPlus. Default: 150ms.
+`clickDelay`: set a delay for click after release the CardViewPlus. Default: 150ms.
 
    Suggest setting click delay more than 150ms.
   
+<br/>
+
+	Please use `normalCardElevation` and `pressedCardElevation` instead of `cardElevation` and `maxCardElevation`.
+
 <br/>
 
 XML
@@ -80,11 +84,12 @@ XML
 <com.alibardide5124.cardviewplus.CardViewPlus
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	app:normalElevation="2dp"
-	app:maxElevation="5dp"
-	app:pressedColor="#ffe0e0e0"
+	app:normalCardElevation="2dp"
+	app:pressedCardElevation="5dp"
+	app:cardPressedColor="#ffe0e0e0"
 	app:animationEnabled="true"
 	app:clickDelay="150">
+
 
 </com.alibardide5124.cardviewplus.CardViewPlus>
 ```
@@ -93,9 +98,9 @@ Kotlin
 ----
 ```kotlin
 cardViewPlus.apply {
-	normalElevation = 4
-	pessedElevation = 10
-	pressedColor = Color.parseColor("#e0e0e0")
+	normalCardElevation = 4
+	pessedCardElevation = 10
+	cardPressedColor = Color.parseColor("#e0e0e0")
 	isAnimationEnabled = true
 	clickDelay = 150
 }
@@ -105,9 +110,9 @@ Java
 -----
 ```java
 CardViewPlus cardViewPlus = findViewById(R.id.cardViewPlus);
-cardViewPlus.setNormalElevation(4);
-cardViewPlus.setPressedElevation(10);
-cardViewPlus.setPressedColor(Color.parseColor("#e0e0e0"));
+cardViewPlus.setNormalCardElevation(4);
+cardViewPlus.setPressedCardElevation(10);
+cardViewPlus.setCardPressedColor(Color.parseColor("#e0e0e0"));
 cardViewPlus.setAnimationEnabled(true);
 cardViewPlus.setClickDelay(150);
 ```
